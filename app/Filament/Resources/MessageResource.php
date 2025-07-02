@@ -17,7 +17,9 @@ class MessageResource extends Resource
 {
     protected static ?string $model = Message::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-oval-left-ellipsis';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationGroup = 'Messages';
 
     public static function form(Form $form): Form
     {
@@ -31,7 +33,10 @@ class MessageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('message')->limit(50),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //
