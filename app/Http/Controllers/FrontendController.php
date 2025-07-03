@@ -34,11 +34,11 @@ class FrontendController extends Controller
         return view('frontend.blog', compact('posts'));
     }
 
-    public function blogShow($slug)
-    {
-        $post = BlogPost::where('slug', $slug)->firstOrFail();
-        return view('frontend.blog-show', compact('post'));
-    }
+    // public function blogShow($slug)
+    // {
+    //     $post = BlogPost::where('slug', $slug)->firstOrFail();
+    //     return view('frontend.blog-show', compact('post'));
+    // }
 
     public function contact()
     {
@@ -57,5 +57,16 @@ class FrontendController extends Controller
 
         return back()->with('success', 'Message sent successfully!');
     }
-}
 
+    public function Project(Request $request)
+    {
+        // handle POST request
+        return view('frontend.projects'); // make sure this view exists
+    }
+
+    public function Skills(Request $request)
+    {
+        // handle POST request
+        return view('frontend.skill');
+    }
+}
